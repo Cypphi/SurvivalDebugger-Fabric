@@ -4,8 +4,6 @@
   "package": "cypphi.survivaldebugger.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-  ],
-  "client": [
     "DebugStickItemMixin"
   ],
   "injectors": {
