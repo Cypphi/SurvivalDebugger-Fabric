@@ -29,5 +29,8 @@ jobs:
         if: ${{ runner.os == 'Linux' && matrix.java == '17' }}
         uses: actions/upload-artifact@v3
         with:
-          name: Artifacts
-          path: build/libs/
+          automatic_release_tag: "1.19.4"
+          prerelease: false
+          title: "Latest dev build"
+          files: |
+            ./build/libs/*.jar
