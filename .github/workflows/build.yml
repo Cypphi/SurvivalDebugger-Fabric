@@ -25,12 +25,13 @@ jobs:
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build
-      - name: capture build artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '17' }}
-        uses: actions/upload-artifact@v3
+      - name: Remove sources jar
+        run: rm ./build/libs/*-sources.jar
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          automatic_release_tag: "1.19.4"
-          prerelease: false
-          title: "Latest dev build"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest-1.18"
+          prerelease: true
+          title: "Haze Client (Pre-Release)"
           files: |
             ./build/libs/*.jar
